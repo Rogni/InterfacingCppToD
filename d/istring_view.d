@@ -1,20 +1,16 @@
-module istring_view;
+module d.istring_view;
 
-extern (C++)  {
-    interface ISpan(T) {
-        long size() const;
-        T at(long index) const; 
+extern (C++) interface IStringView {
+    long size() const;
+    const(char*) data() const;
+
+    final string toString() {
+        return data()[0..size()].dup;
     }
 
-    interface IStringView {
-        long size() const;
-        const(char*) data() const;
-
-        final string toString() {
-            return data()[0..size()].dup;
-        }
-    }
 }
+
+
 
 class DStringView : IStringView {
     private string m_str;

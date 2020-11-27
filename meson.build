@@ -1,10 +1,12 @@
 project('TestD', ['d', 'cpp'], default_options : ['cpp_std=c++17'])
 
 src = [
-    'istring_view.cpp',
-    'istring_view.d',
+    'cpp/istring_view.cpp',
+    'cpp/ispan.hpp',
     'main.d',
-    'lib.cpp'
+    'lib.cpp',
+    'd/istring_view.d',
+    'd/ispan.d'
 ]
 
-executable('unit', src)
+executable('unit', src, include_directories: ['d'])

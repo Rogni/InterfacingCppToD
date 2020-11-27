@@ -8,7 +8,7 @@ long StdStringView::size() const {
     return m_str.size();
 }
 
-const char * StdStringView::data() const {
+const char * const StdStringView::data() const {
     return m_str.data();
 }
 
